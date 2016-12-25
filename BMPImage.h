@@ -9,6 +9,8 @@
 #define	BMPIMAGE_H
 
 #include <string>
+
+
 using namespace std;
 
 class BMPImage {
@@ -28,16 +30,16 @@ public:
     /**
      * Get Image Data
      */
-    char* getData();
+    unsigned char* getData();
 
     // Get height and width.
-    unsigned long getX();
-    unsigned long getY();
+    int getX();
+    int getY();
     
 private:
-    unsigned long sizeX;
-    unsigned long sizeY;
-    char *data;
+    int sizeX;
+    int sizeY;
+    unsigned char *data;
 
 };
 

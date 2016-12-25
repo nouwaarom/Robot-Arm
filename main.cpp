@@ -8,7 +8,6 @@
 /* C/C++ Standard Includes */
 #include <cstdlib>
 #include <iostream>
-#include <stdio.h>
 
 /* OpenGL/GLUT Includes */
 #include <GL/glut.h>
@@ -124,21 +123,21 @@ void LoadGLTextures() {
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR); // scale linearly when image smaller than texture
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_REPEAT);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image1->getX(), image1->getY(), 0, GL_RGB, GL_UNSIGNED_BYTE, image1->getData());
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image1->getX(), image1->getY(), 0, GL_RGBA, GL_UNSIGNED_BYTE, image1->getData());
 
     glBindTexture(GL_TEXTURE_2D, texture[1]); 
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_REPEAT);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image2->getX(), image2->getY(), 0, GL_RGB, GL_UNSIGNED_BYTE, image2->getData());
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image2->getX(), image2->getY(), 0, GL_RGBA, GL_UNSIGNED_BYTE, image2->getData());
 
     glBindTexture(GL_TEXTURE_2D, texture[2]);
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_REPEAT);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image3->getX(), image3->getY(), 0, GL_RGB, GL_UNSIGNED_BYTE, image3->getData());
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image3->getX(), image3->getY(), 0, GL_RGBA, GL_UNSIGNED_BYTE, image3->getData());
     
     delete image1;
     delete image2;
