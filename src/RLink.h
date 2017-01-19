@@ -8,7 +8,8 @@
 #ifndef RLINK_H
 #define	RLINK_H
 
-#include<GL/gl.h>
+#include <GL/gl.h>
+#include <vector>
 
 #include "denavit.h"
 
@@ -35,7 +36,7 @@ public:
      * @see RLink(double a, double alpha, double d, double teta)
      * @param parameters : A row of DH-Table.
      */
-    RLink(double* parameters);
+    RLink(std::vector<double> parameters);
     RLink(const RLink& orig);
     virtual ~RLink();
     

@@ -5,10 +5,15 @@
 #include "ControllerInterface.h"
 #include <stdint.h>
 
-//extern float get_angle(int32_t joint);
+extern "C" double get_angle(int32_t joint);
+extern "C" int32_t set_dh(double* dh_matrix, uint32_t joint_count);
 
-float ControllerInterface::getAngle(int joint)
+double ControllerInterface::getAngle(int joint)
 {
-   //return get_angle(joint);
-    return 1.0f;
+    return get_angle(joint);
+}
+
+int ControllerInterface::setDenavitHartenbergParameters(std::vector<double> dhMatrix, int jointCount)
+{
+    return set_dh(dhMatrix.data(), (uint32_t)jointCount);
 }

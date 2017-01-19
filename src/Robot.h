@@ -8,10 +8,11 @@
 #ifndef ROBOT_H
 #define	ROBOT_H
 
-#include<GL/gl.h>
+#include <GL/gl.h>
+#include <vector>
 
 #include "denavit.h"
-#include"RLink.h"
+#include "RLink.h"
 
 /**
  * Class Robot.
@@ -27,7 +28,7 @@ public:
      * @param dhtable  : A matrix representing a DH-Table.
      * @param textures : Textures array.
      */
-    Robot(int numlink, double* dhtable, bool zapproach, GLuint* textures);
+    Robot(int numlink, std::vector<double> dhtable, bool zapproach, GLuint* textures);
     Robot(const Robot& orig);
     virtual ~Robot();
     

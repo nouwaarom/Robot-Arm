@@ -43,6 +43,6 @@ dhmatrix* createMatrix(double a, double alpha, double d, double theta)
     return result;
 }
 
-dhmatrix* createMatrix(double* parameters) {
+dhmatrix* createMatrix(std::vector<double> parameters) {
     return createMatrix(parameters[0],parameters[1],parameters[2],parameters[3]);
 }

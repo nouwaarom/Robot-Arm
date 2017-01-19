@@ -10,14 +10,15 @@
 
 #include <GL/freeglut_std.h>
 
-Robot::Robot(int numlink, double* dhtable, bool zapproach, GLuint* textures) {
+Robot::Robot(int numlink, std::vector<double> dhtable, bool zapproach, GLuint* textures)
+{
     this->linklist = new RLink*[numlink];
     this->numlink = numlink;
     this->textures = textures;
     this->zapproach = zapproach;
-    for (int i=0;i<numlink;++i)
-    {
-        linklist[i] = new RLink(&dhtable[i*4]);
+    for (int i=0;i<numlink;++i) {
+        std::vector<double> dhrow(dhtable.begin()+i*4, dhtable.begin()+i*4+4);
+        linklist[i] = new RLink(dhrow);
         linklist[i]->setTextures(textures);
     }
 }

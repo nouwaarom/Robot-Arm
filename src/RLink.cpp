@@ -19,7 +19,7 @@ RLink::RLink(double a, double alpha, double d, double teta)
     this->qdot = 0.1;
 }
 
-RLink::RLink(double* parameters)
+RLink::RLink(std::vector<double> parameters)
 {
     this->dhm = createMatrix(parameters);
     this->qvalue = parameters[3];

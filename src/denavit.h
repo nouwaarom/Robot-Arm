@@ -8,6 +8,8 @@
 #ifndef DENAVIT_H
 #define	DENAVIT_H
 
+#include <vector>
+
 typedef struct {
     double* matrix; // 4x4 matrix representing DH-Transformation for a 
     double a;       // link in column-major order with parameters
@@ -18,7 +20,7 @@ typedef struct {
 
 // Compute a numeric DH-transformation matrix.
 dhmatrix* createMatrix(double a, double alpha, double d, double theta);
-dhmatrix* createMatrix(double* parameters);
+dhmatrix* createMatrix(std::vector<double> parameters);
 
 #endif	/* DENAVIT_H */
 

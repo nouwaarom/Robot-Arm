@@ -35,7 +35,6 @@
 #define PRINT(x)   cout << (x)
 #define PRINTLN(x) cout << (x) << endl
 
-extern "C" int32_t get_angle(int32_t joint);
 
 using namespace std;
 
@@ -57,32 +56,32 @@ int linksel = 0;
 
 /* TABELLA DH [a alpha d theta] */
 
-#define ROBOT 1
+#define ROBOT 2
 
 #if ROBOT==1 // 5R Robot
 int numlink = 5; // Number of Link
 bool zapproach = true; // End effector has approach direction along z?
-double dh[] =  {0, pi2, 5.0,  0,
-                0, pi2, 0  ,  0,
-                0, pi2, 5.0,  0,
-                0, pi2, 0  ,  0,
-                0, 0  , 5.0,  0}; // DH Table
+vector<double> dh({0, pi2, 5.0,  0,
+                   0, pi2, 0  ,  0,
+                   0, pi2, 5.0,  0,
+                   0, pi2, 0  ,  0,
+                   0, 0  , 5.0,  0}); // DH Table
 #endif
 
 #if ROBOT==2 // 3R Antropomorphic Robot
 int numlink = 3;
 bool zapproach = false;
-double dh[] =  {0  , -pi2, 5.0, 0,
-                3.0, 0   ,   0, 0,
-                3.0,  pi2,   0, 0};
+vector<double> dh({0  , -pi2, 0, 0,
+                   4.0, 0   , 0, 0,
+                   3.0,  pi2, 0, 0});
 #endif
 
 #if ROBOT==3 // 3R Spherical Wrist
 int numlink = 3;
 bool zapproach = true;
-double dh[] =  {0, pi2, 5.0, 0,
-                0, pi2,   0, 0,
-                0, 0  , 5.0, 0};
+vector<double dh({0, pi2, 5.0, 0,
+                  0, pi2,   0, 0,
+                  0, 0  , 5.0, 0});
 #endif
 
 /* Robot Structure */
@@ -190,7 +189,7 @@ void init()
     LoadGLTextures();
 
     /* Create Robot */
-    r = new Robot(numlink,dh,zapproach,texture);
+    r = new Robot(numlink, dh, zapproach, texture);
 
 }
 
@@ -320,8 +319,10 @@ void header()
  */
 int main(int argc, char** argv)
 {
-    //ControllerInterface* controllerInterface = new ControllerInterface();
-    cout << "Angle: " << get_angle((int32_t)1) << endl;
+    ControllerInterface* controllerInterface = new ControllerInterface();
+    controllerInterface->setDenavitHartenbergParameters(dh, numlink);
+
+    cout << "Angle: " << controllerInterface->getAngle(1) << endl;
 
     header();
     PRINTLN("Starting Robot Arm...");
