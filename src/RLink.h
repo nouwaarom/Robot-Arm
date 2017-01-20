@@ -64,12 +64,12 @@ public:
     /**
      * Update the current link q value according qdot.
      */
-    void update();
+    void update(double q);
 
     /**
      * Draw this link.
      */
-    void draw();
+    void draw() const;
     
     /**
      * Setter for 'textures'.
@@ -82,8 +82,8 @@ private:
     GLuint* textures;   // Textures Array.
     double qdot;        // Link Angular Velocity.
     
-    void enableSphereTexture(); // Enable Textures for Joint.
-    void enablePrismaTexture(); // Enable Textures for Link.
+    void enableSphereTexture() const; // Enable Textures for Joint.
+    void enablePrismaTexture() const; // Enable Textures for Link.
 };
 
 #endif	/* RLINK_H */

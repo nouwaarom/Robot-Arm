@@ -11,7 +11,7 @@
 #include <vector>
 
 typedef struct {
-    double* matrix; // 4x4 matrix representing DH-Transformation for a 
+    std::vector<double> matrix; // 4x4 matrix representing DH-Transformation for a
     double a;       // link in column-major order with parameters
     double alpha;   // a, alpha, d and theta.
     double d;

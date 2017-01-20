@@ -13,13 +13,16 @@
 
 #include "denavit.h"
 #include "RLink.h"
+#include "WorldObject.h"
+#include "KeyListener.h"
+
+#define pi2 11.0/7.0
 
 /**
  * Class Robot.
  */
-class Robot {
-
-    
+class Robot : public WorldObject, public KeyListener
+{
 public:
     /**
      * Constructor.
@@ -29,7 +32,6 @@ public:
      * @param textures : Textures array.
      */
     Robot(int numlink, std::vector<double> dhtable, bool zapproach, GLuint* textures);
-    Robot(const Robot& orig);
     virtual ~Robot();
     
     /**
@@ -51,22 +53,26 @@ public:
     /**
       * Update every link in the robot according to the kinematic velocity.
       */
-    void update();
+    void update(int deltaTime);
 
     /**
       * Draw every link in the robot.
       */
-    void draw();
+    void draw() const;
 private:
     RLink** linklist; /* List of Link */
     int numlink;      /* Total number of the link */
+    int _linksel;
     GLuint* textures; /* Textures Array */
     bool zapproach;   /* True if robot approach along the z axis */
     
     /*
-     * This private method draw the end-effector.
+     * This private method draws the end-effector.
      */
-    void drawEndEffector();
+    void drawEndEffector() const;
+
+    // Inherited from KeyListener
+    void notifyKeyEvent(unsigned char key, int x, int y);
 
 };
 

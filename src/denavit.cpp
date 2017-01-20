@@ -8,7 +8,7 @@ using namespace std;
 dhmatrix* createMatrix(double a, double alpha, double d, double theta)
 {
     dhmatrix* result = new dhmatrix;
-    result->matrix = new double[16];
+    result->matrix = std::vector<double>(16);
     result->a = a;
     result->alpha = alpha;
     result->d = d;

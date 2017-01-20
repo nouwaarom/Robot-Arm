@@ -21,3 +21,10 @@ void InputManager::mouseCallback(int eventType, int startEnd, int x, int y)
         mouseListener->notifyMouseEvent(eventType, startEnd, x, y);
     }
 }
+
+void InputManager::keyCallback(unsigned char key, int x, int y)
+{
+   for (KeyListener* keyListener : _keyListeners) {
+       keyListener->notifyKeyEvent(key, x, y);
+   }
+}

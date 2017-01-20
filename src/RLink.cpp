@@ -34,7 +34,7 @@ RLink::~RLink()
 {
 }
 
-void RLink::draw()
+void RLink::draw() const
 {
     glEnable(GL_TEXTURE_GEN_S);
     glEnable(GL_TEXTURE_GEN_T);
@@ -90,6 +90,7 @@ void RLink::draw()
 void RLink::updateQ(double newq)
 {
     this->dhm->theta = newq;
+    delete this->dhm->matrix;
     this->dhm = createMatrix(this->dhm->a,this->dhm->alpha,this->dhm->d,this->dhm->theta);
     this->qvalue = newq;
 }
@@ -104,7 +105,7 @@ void RLink::setTextures(GLuint* textures)
     this->textures = textures;
 }
 
-void RLink::enableSphereTexture()
+void RLink::enableSphereTexture() const
 {
     glBindTexture(GL_TEXTURE_2D, this->textures[0]);
     
@@ -112,7 +113,7 @@ void RLink::enableSphereTexture()
     glTexGeni(GL_T,GL_TEXTURE_GEN_MODE,GL_OBJECT_LINEAR);
 }
 
-void RLink::enablePrismaTexture()
+void RLink::enablePrismaTexture() const
 {
     glBindTexture(GL_TEXTURE_2D, 0);
 }
@@ -122,8 +123,7 @@ void RLink::updateQDot(double newqdot)
     this->qdot = newqdot;
 }
 
-// FIXME, do this based on input
-void RLink::update()
+void RLink::update(double q)
 {
-    this->updateQ(this->qvalue + this->qdot * 0.1);
+    this->updateQ(this->qvalue + q);
 }

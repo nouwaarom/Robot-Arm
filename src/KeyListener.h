@@ -2,17 +2,18 @@
 // Created by elbert on 29/03/16.
 //
 
-#ifndef TOWERDEFENCE_MOUSELISTENER_H
-#define TOWERDEFENCE_MOUSELISTENER_H
+#ifndef ROBOT_ARM_KEYLISTENER_H
+#define ROBOT_ARM_KEYLISTENER_H
 
 
-class MouseListener
+class KeyListener
 {
 public:
-    virtual void notifyMouseEvent(int eventType, int startEnd, int x, int y) = 0;
+    virtual ~KeyListener();
+    virtual void notifyKeyEvent(unsigned char key, int x, int y) = 0;
 protected:
 private:
 };
 
 
-#endif //TOWERDEFENCE_MOUSELISTENER_H
+#endif //ROBOT_ARM_KEYLISTENER_H

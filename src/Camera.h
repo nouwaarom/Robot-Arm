@@ -9,26 +9,29 @@
 #define WINDOWS_X_POSITION 100
 #define WINDOWS_Y_POSITION 100
 
-#include <GL/glut.h>
-#include <GL/gl.h>
+#define STEP 0.1f
 
-#include "BMPImage.h"
+#include "WorldObject.h"
+#include "KeyListener.h"
 
-
-class Camera
+class Camera : public WorldObject, public KeyListener
 {
 public:
-    void init(int argc, char **argv);
-    GLuint* getRobotTexture();
+    Camera();
+
     // Glut callbacks
-    void display();
-    void reshape();
+    void reshape(int w, int h);
+
+    void predraw() const;
+    void postdraw() const;
+
+    // Inherited from WorldObject
+    void draw() const;
+    void update(int deltaTime);
+    // Inherited from KeyListener
+    void notifyKeyEvent(unsigned char key, int x, int y);
 protected:
 private:
-    void LoadGLTextures();
-    void drawFloor();
-    /* Textures Buffer */
-    GLuint texture[3];
     /* Camera Position */
     float cameray = 5;
     float camerax = 0;
