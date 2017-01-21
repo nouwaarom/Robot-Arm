@@ -10,6 +10,7 @@
 
 #include <vector>
 
+// TODO, make this a proper object
 typedef struct {
     std::vector<double> matrix; // 4x4 matrix representing DH-Transformation for a
     double a;       // link in column-major order with parameters
@@ -19,6 +20,7 @@ typedef struct {
 } dhmatrix;
 
 // Compute a numeric DH-transformation matrix.
+dhmatrix* updateMatrix(dhmatrix* dhm, double a, double alpha, double d, double theta);
 dhmatrix* createMatrix(double a, double alpha, double d, double theta);
 dhmatrix* createMatrix(std::vector<double> parameters);
 

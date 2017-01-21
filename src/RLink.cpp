@@ -62,7 +62,7 @@ void RLink::draw() const
     }
     
     // Go to next frame.
-    glMultMatrixd(this->dhm->matrix);
+    glMultMatrixd(this->dhm->matrix.data());
     
     // ONLY IF A != 0
     if (this->dhm->a != 0) {
@@ -90,8 +90,7 @@ void RLink::draw() const
 void RLink::updateQ(double newq)
 {
     this->dhm->theta = newq;
-    delete this->dhm->matrix;
-    this->dhm = createMatrix(this->dhm->a,this->dhm->alpha,this->dhm->d,this->dhm->theta);
+    this->dhm = updateMatrix(this->dhm, this->dhm->a, this->dhm->alpha, this->dhm->d, this->dhm->theta);
     this->qvalue = newq;
 }
 
