@@ -8,11 +8,6 @@
 
 Camera::Camera() : WorldObject('C')
 {
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
-    glutInitWindowSize(WINDOWS_SIZE,WINDOWS_SIZE);
-    glutInitWindowPosition(WINDOWS_X_POSITION,WINDOWS_Y_POSITION);
-    glutCreateWindow("ROBOT ARMS v1.1");
-
     /* Material and lights */
     GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0};
     GLfloat mat_shininess[] = { 25.0};

@@ -31,6 +31,10 @@ int BMPImage::loadImage(string strfilename)
     int n;
     this->data = stbi_load(filename, &this->sizeX, &this->sizeY, &n, 0);
 
+    if (data == 0) {
+        std::cout << "Error while loading texture: " << stbi_failure_reason() << std::endl;
+        return 0;
+    }
 
     // we're done.
     return 1;

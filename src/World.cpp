@@ -3,13 +3,19 @@
 //
 #include "World.h"
 #include "Camera.h"
+#include <iostream>
 
 World* _eventHandlingWorld = nullptr;
 
 // Non class functions
 void setGlutEventHandler(World* world, int argc, char** argv)
 {
-    glutInit(&argc,argv);
+    glutInit(&argc, argv);
+
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
+    glutInitWindowSize(WINDOWS_SIZE,WINDOWS_SIZE);
+    glutInitWindowPosition(WINDOWS_X_POSITION,WINDOWS_Y_POSITION);
+    glutCreateWindow("ROBOT ARMS v1.1");
 
     _eventHandlingWorld = world;
     // Set callbacks

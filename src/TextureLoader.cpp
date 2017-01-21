@@ -13,15 +13,15 @@ void TextureLoader::LoadGLTextures()
     BMPImage *image2 = new BMPImage();
     BMPImage *image3 = new BMPImage();
 
-    if (!image1->loadImage("./res/copper.bmp")) {
+    if (!image1->loadImage("../res/copper.bmp")) {
         exit(1);
     }
 
-    if (!image2->loadImage("./res/zink.bmp")) {
+    if (!image2->loadImage("../res/zink.bmp")) {
         exit(1);
     }
 
-    if (!image3->loadImage("./res/chess.bmp")) {
+    if (!image3->loadImage("../res/chess.bmp")) {
         exit(1);
     }
 

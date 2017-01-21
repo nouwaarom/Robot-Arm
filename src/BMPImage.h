@@ -10,6 +10,7 @@
 
 #include <string>
 
+#define TBI_FAILURE_USERMSG
 
 using namespace std;
 

@@ -12,6 +12,10 @@
 #include "InputManager.h"
 #include "WorldObject.h"
 
+#define WINDOWS_SIZE 500
+#define WINDOWS_X_POSITION 100
+#define WINDOWS_Y_POSITION 100
+
 class World;
 class WorldObject;
 

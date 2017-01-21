@@ -5,9 +5,6 @@
 #ifndef ROBOT_ARM_CAMERA_H
 #define ROBOT_ARM_CAMERA_H
 
-#define WINDOWS_SIZE 500
-#define WINDOWS_X_POSITION 100
-#define WINDOWS_Y_POSITION 100
 
 #define STEP 0.1f
 
