@@ -8,6 +8,9 @@
 
 Camera::Camera() : WorldObject('C')
 {
+    // We are a keylistener
+    WorldObject::isKeyListener();
+
     /* Material and lights */
     GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0};
     GLfloat mat_shininess[] = { 25.0};

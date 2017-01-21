@@ -15,6 +15,16 @@ void InputManager::unregisterMouseListener(MouseListener* mouseListener)
     _mouseListeners.remove(mouseListener);
 }
 
+void InputManager::registerKeyListener(KeyListener* keyListener)
+{
+    _keyListeners.push_back(keyListener);
+}
+
+void InputManager::unregisterKeyListener(KeyListener* keyListener)
+{
+    _keyListeners.remove(keyListener);
+}
+
 void InputManager::mouseCallback(int eventType, int startEnd, int x, int y)
 {
     for (MouseListener* mouseListener : _mouseListeners) {

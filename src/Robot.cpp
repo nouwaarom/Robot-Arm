@@ -12,6 +12,9 @@
 
 Robot::Robot(int numlink, std::vector<double> dhtable, bool zapproach, GLuint* textures) : WorldObject('R')
 {
+    // We are a keylistener
+    WorldObject::isKeyListener();
+
     this->linklist = new RLink*[numlink];
     this->numlink = numlink;
     this->textures = textures;

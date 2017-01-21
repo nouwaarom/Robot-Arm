@@ -25,11 +25,6 @@
 #include "TextureLoader.h"
 #include "InputManager.h"
 
-/* Constant */
-#define ANIMATION_ON 0
-#define ANIMATION_OFF 1
-#define NO_FUNCTION 0
-
 using namespace std;
 
 /* Current Link */
@@ -84,12 +79,14 @@ int main(int argc, char** argv)
 
     Camera* camera = new Camera();
     world->addObject(static_cast<WorldObject*>(camera));
+    world->getInputManager()->registerKeyListener(static_cast<KeyListener*>(camera));
 
     Floor* floor = new Floor(loader->getTexture(2));
     world->addObject(static_cast<WorldObject*>(floor));
 
     Robot* robot = new Robot(numlink, dh, zapproach, loader->getTextures());
     world->addObject(static_cast<WorldObject*>(robot));
+    world->getInputManager()->registerKeyListener(static_cast<KeyListener*>(robot));
 
     cout << "Starting Simulator..." << endl;
     world->start();

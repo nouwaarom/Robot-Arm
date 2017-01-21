@@ -22,3 +22,23 @@ char WorldObject::getId()
 {
     return _id;
 }
+
+bool WorldObject::isKeyListener()
+{
+    return _isKeyListener;
+}
+
+void WorldObject::setIsKeyListener()
+{
+   _isKeyListener = true;
+}
+
+bool WorldObject::isMouseListener()
+{
+   return _isMouseListener;
+}
+
+void WorldObject::setIsMouseListener()
+{
+   _isMouseListener = true;
+}
