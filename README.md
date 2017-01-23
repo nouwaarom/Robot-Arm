@@ -3,30 +3,26 @@
 RobotArm is a 3D simulation of a robotic arm. The model was build throught the Denavit-Hartenberg table.
 
 ## Dependence
-
 * OpenGL
 * Glut
 * libxmu
 * libxi
 
 ## How to build
-
 ### Linux
-
-    mkdir build
-    cd build
-    cmake ..
-    make
+ * `mkdir build`
+ * `CXX=<compiler> meson build`
+ * `cd build`
+ * `ninja`
 
 ### Windows
-
 TODO
 
 ## How to run
 
 In the build directory run `./robotarm`.
 
-## Controll
+## Control
 
 In *Robot Arm* you can use the following control key:
 

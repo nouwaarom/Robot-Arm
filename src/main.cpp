@@ -66,9 +66,6 @@ int main(int argc, char** argv)
     cout << "Developed by Davide Aversa." << endl;
     cout << "-----------" << endl;
 
-    cout << "Starting Robot Arm Controller..." << endl;
-    ControllerInterface* controllerInterface = new ControllerInterface();
-    controllerInterface->setDenavitHartenbergParameters(dh, numlink);
 
     InputManager* inputManager = new InputManager();
     World* world = new World(inputManager);

@@ -13,6 +13,7 @@
 
 #include "denavit.h"
 #include "RLink.h"
+#include "ControllerInterface.h"
 #include "WorldObject.h"
 #include "KeyListener.h"
 
@@ -65,6 +66,7 @@ private:
     int _linksel;
     GLuint* textures; /* Textures Array */
     bool zapproach;   /* True if robot approach along the z axis */
+    ControllerInterface* _controllerInterface;
     
     /*
      * This private method draws the end-effector.

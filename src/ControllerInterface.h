@@ -11,7 +11,7 @@
 class ControllerInterface
 {
 public:
-    double getAngle(int joint);
+    double getAngle(int joint, int deltaTime);
     int setDenavitHartenbergParameters(std::vector<double> dhMatrix, int jointCount);
 protected:
 private:

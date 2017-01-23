@@ -124,5 +124,5 @@ void RLink::updateQDot(double newqdot)
 
 void RLink::update(double q)
 {
-    this->updateQ(this->qvalue + q);
+    this->updateQ(q);
 }

@@ -6,14 +6,18 @@
  */
 
 #include "Robot.h"
-#include "RLink.h"
 
 #include <GL/freeglut_std.h>
+#include <iostream>
 
 Robot::Robot(int numlink, std::vector<double> dhtable, bool zapproach, GLuint* textures) : WorldObject('R')
 {
     // We are a keylistener
     WorldObject::isKeyListener();
+
+    std::cout << "Starting Robot Arm Controller..." << std::endl;
+    _controllerInterface = new ControllerInterface();
+    _controllerInterface->setDenavitHartenbergParameters(dhtable, numlink);
 
     this->linklist = new RLink*[numlink];
     this->numlink = numlink;
@@ -88,11 +92,11 @@ void Robot::drawEndEffector() const
     glDisable(GL_TEXTURE_GEN_T);
 }
 
-// FIXME, do this based on input
 void Robot::update(int deltaTime)
 {
-    double q = 0;
+    double q;
     for (int i=0;i<this->numlink;i++) {
+        q = _controllerInterface->getAngle(i, deltaTime);
         this->linklist[i]->update(q);
     }
 }
